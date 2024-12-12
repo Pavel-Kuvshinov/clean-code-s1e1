@@ -8,10 +8,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-task");//Add a new task.
+var taskInput=document.querySelector(".new-tasks__input");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+var incompleteTaskHolder=document.querySelector(".unexecute-tasks__list");//ul of #incompleteTasks
+var completedTasksHolder=document.querySelector(".execute-tasks__list");//completed-tasks
 
 
 //New task list item
@@ -46,13 +46,14 @@ var createNewTaskElement=function(taskString){
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
     editButton.className="button button_edit list_button edit";
-    
+
     deleteButton.className="button button_delete list_button delete";
 
     deleteButtonImg.className='button__icon_delete';
     deleteButtonImg.src='./remove.svg';
     deleteButtonImg.alt='remove-icon';
     deleteButton.appendChild(deleteButtonImg);
+
 
     //and appending.
     listItem.appendChild(checkBox);
@@ -62,6 +63,8 @@ var createNewTaskElement=function(taskString){
     listItem.appendChild(deleteButton);
     return listItem;
 }
+
+
 
 var addTask=function(){
     console.log("Add Task...");
@@ -117,6 +120,7 @@ var deleteTask=function(){
     ul.removeChild(listItem);
 
 }
+
 
 //Mark task completed
 var taskCompleted=function(){
